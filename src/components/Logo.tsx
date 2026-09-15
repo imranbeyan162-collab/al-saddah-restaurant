@@ -15,32 +15,16 @@ export const Logo: React.FC<LogoProps> = ({
   className = "",
   variant = "full"
 }) => {
-  const [imgError, setImgError] = useState(false);
-
   return (
     <div className={`inline-flex items-center gap-3 select-none ${className}`}>
-      {/* If an uploaded logo image exists in public/images/logo.png, display it; otherwise render the custom SVG emblem */}
-      {!imgError ? (
-        <img
-          src="/images/logo.png"
-          alt="Al-Saddah Restaurant Logo"
-          width={size}
-          height={size}
-          onError={() => setImgError(true)}
-          className="rounded-full object-contain shrink-0 transition-transform duration-300 hover:scale-105 drop-shadow-[0_4px_15px_rgba(201,162,39,0.3)]"
-          style={{ width: `${size}px`, height: `${size}px` }}
-        />
-      ) : null}
-
-      {imgError && (
-        <svg
-          width={size}
-          height={size}
-          viewBox="0 0 200 200"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="shrink-0 transition-transform duration-300 hover:scale-105 drop-shadow-[0_6px_20px_rgba(201,162,39,0.35)]"
-        >
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 200 200"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="shrink-0 transition-transform duration-300 hover:scale-105 drop-shadow-[0_6px_20px_rgba(201,162,39,0.35)]"
+      >
           <defs>
             <linearGradient id="goldGradientRing" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FFF2B2" />
@@ -121,7 +105,7 @@ export const Logo: React.FC<LogoProps> = ({
             />
           </g>
         </svg>
-      )}
+
 
       {/* Accompanying Typography if enabled */}
       {showText && variant === 'full' && (
