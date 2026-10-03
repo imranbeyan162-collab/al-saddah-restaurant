@@ -4,7 +4,7 @@ import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/translations';
 import { Logo } from '@/components/Logo';
-import { MapPin, Phone, MessageCircle, Clock, Award, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, Clock, ArrowUp, Sparkles, Send } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { language } = useLanguage();
@@ -15,25 +15,18 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-black text-neutral-400 border-t border-amber-500/20 pt-16 pb-12 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" />
-
+    <footer className="bg-black text-neutral-400 border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-12">
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-5 flex flex-col items-start">
             <a href="#home" className="mb-4">
-              <Logo size={60} showText={true} />
+              <Logo size={56} showText={true} />
             </a>
 
-            <p className="text-neutral-400 text-sm leading-relaxed mb-6 max-w-md">
+            <p className="text-neutral-400 text-sm leading-relaxed max-w-md">
               {t.footer.aboutText}
             </p>
-
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold">
-              <Award className="w-4 h-4 text-amber-400" />
-              <span>{t.footer.womenOwnedNote}</span>
-            </div>
           </div>
 
           {/* Col 2: Quick Links */}
@@ -42,12 +35,12 @@ export const Footer: React.FC = () => {
               {t.footer.quickLinks}
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><a href="#home" className="hover:text-amber-400 transition-colors">{t.nav.home}</a></li>
-              <li><a href="#menu" className="hover:text-amber-400 transition-colors">{t.nav.menu}</a></li>
-              <li><a href="#about" className="hover:text-amber-400 transition-colors">{t.nav.about}</a></li>
-              <li><a href="#gallery" className="hover:text-amber-400 transition-colors">{t.nav.gallery}</a></li>
-              <li><a href="#reviews" className="hover:text-amber-400 transition-colors">{t.nav.reviews}</a></li>
-              <li><a href="#contact" className="hover:text-amber-400 transition-colors">{t.nav.contact}</a></li>
+              <li><a href="#home" className="hover:text-white transition-colors">{t.nav.home}</a></li>
+              <li><a href="#menu" className="hover:text-white transition-colors">{t.nav.menu}</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">{t.nav.about}</a></li>
+              <li><a href="#gallery" className="hover:text-white transition-colors">{t.nav.gallery}</a></li>
+              <li><a href="#reviews" className="hover:text-white transition-colors">{t.nav.reviews}</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">{t.nav.contact}</a></li>
             </ul>
           </div>
 
@@ -58,16 +51,16 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-[#C5A880] shrink-0 mt-1" />
                 <span>{t.contact.addressVal}</span>
               </li>
               <li className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+                <Clock className="w-4 h-4 text-[#C5A880] shrink-0" />
                 <span>{t.brand.hoursDetail}</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={`tel:${t.brand.phone.replace(/\s+/g, '')}`} className="hover:text-amber-400 font-mono" dir="ltr">
+                <Phone className="w-4 h-4 text-[#C5A880] shrink-0" />
+                <a href={`tel:${t.brand.phone.replace(/\s+/g, '')}`} className="hover:text-white font-mono" dir="ltr">
                   {t.brand.phone}
                 </a>
               </li>
@@ -87,6 +80,34 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Agency-Grade Showcase Callout: Encourages other restaurants to DM for custom builds */}
+        <div className="mb-10 p-5 rounded-2xl bg-neutral-950 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-start shadow-lg">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[#C5A880] shrink-0">
+              <Sparkles className="w-5 h-5 text-[#C5A880]" />
+            </div>
+            <div>
+              <div className="text-xs sm:text-sm font-bold text-white">
+                {t.footer.agencyTagline}
+              </div>
+              <div className="text-[11px] sm:text-xs text-neutral-400">
+                {t.footer.agencyCta}
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="https://wa.me/251977777747?text=Hello!%20I%20saw%20the%20Al-Saddah%20Restaurant%20website%20and%20I%20would%20like%20to%20inquire%20about%20building%20a%20similar%20custom%20website%20for%20my%20business."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#C5A880] hover:bg-[#D4B890] text-neutral-950 font-bold text-xs transition-all shrink-0 active:scale-95 shadow-sm"
+          >
+            <Send className="w-3.5 h-3.5" />
+            <span>{language === 'ar' ? 'تواصل معنا الآن' : language === 'am' ? 'አሁን ያናግሩን' : 'DM Us / Inquire Now'}</span>
+          </a>
+        </div>
+
+        {/* Bottom Rights & Back to Top */}
         <div className="pt-8 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <div>
             {t.footer.rights} • Rwanda Street, Addis Ababa, Ethiopia
@@ -95,7 +116,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 hover:text-amber-400 transition-colors"
+              className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
             >
               <span>Back to Top</span>
               <ArrowUp className="w-3.5 h-3.5" />

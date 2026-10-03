@@ -49,12 +49,12 @@ export const Gallery: React.FC = () => {
     <section id="gallery" className="py-20 sm:py-28 bg-[#F5F3EB] text-neutral-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-800 text-xs sm:text-sm font-bold tracking-wider uppercase mb-3">
-            <Camera className="w-3.5 h-3.5 text-amber-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-200/80 border border-neutral-300 text-neutral-700 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-3">
+            <Camera className="w-3.5 h-3.5 text-[#A38755]" />
             <span>{t.gallery.badge}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-900 tracking-tight mb-4">
             {t.gallery.title}
           </h2>
 
@@ -74,7 +74,7 @@ export const Gallery: React.FC = () => {
               onClick={() => setFilter(opt.id as any)}
               className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-sm ${
                 filter === opt.id
-                  ? 'bg-neutral-950 text-amber-400 shadow-md ring-2 ring-amber-500/40'
+                  ? 'bg-neutral-900 text-[#EADDC9] shadow-md ring-1 ring-neutral-700'
                   : 'bg-white text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950 border border-neutral-300'
               }`}
             >
@@ -88,21 +88,21 @@ export const Gallery: React.FC = () => {
             <div
               key={item.id}
               onClick={() => openLightbox(index)}
-              className="group relative h-64 sm:h-72 rounded-2xl overflow-hidden cursor-pointer bg-neutral-200 border border-neutral-300/80 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="group relative h-64 sm:h-72 rounded-2xl overflow-hidden cursor-pointer bg-neutral-200 border border-neutral-300 hover:border-neutral-400 shadow-sm hover:shadow-lg transition-all duration-300"
             >
               <img
                 src={item.image}
                 alt={item.title[language]}
-                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-out"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 text-white">
-                <div className="self-end p-2 rounded-full bg-black/60 backdrop-blur-sm text-amber-400 border border-white/20">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 text-white">
+                <div className="self-end p-2 rounded-full bg-black/60 backdrop-blur-sm text-neutral-200 border border-white/20">
                   <ZoomIn className="w-4 h-4" />
                 </div>
 
                 <div>
-                  <h3 className="text-base font-bold text-amber-300">
+                  <h3 className="text-base font-bold text-neutral-100">
                     {item.title[language]}
                   </h3>
                   <p className="text-xs text-neutral-300 line-clamp-2 mt-1">

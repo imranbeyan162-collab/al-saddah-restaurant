@@ -21,7 +21,7 @@ Built in accordance with the design & build specification document.
 3. **Auto-advancing Hero Carousel:**
    - Auto-advances every **4 seconds**.
    - **Slide order rule:** The 3rd photo displays first upon load, then remaining photos cycle in randomized order.
-   - Tagline overlay, "View Menu" and "Get Directions" CTAs, and highlight badges (Women-Owned, Multi-Floor Dine-in, Open till 12 AM, 3.8? Google rating).
+   - Tagline overlay, "View Menu" and "Get Directions" CTAs, and highlight badges (Authentic Yemeni Heritage, Multi-Floor Dine-in, Open till 12 AM, 3.8★ Google rating).
 
 4. **Curated Menu Showcase (Informational):**
    - Showcase of all 9 featured signature dishes:
@@ -39,7 +39,7 @@ Built in accordance with the design & build specification document.
 
 5. **About Al-Saddah:**
    - Authentic Yemeni culinary heritage & slow pit cooking.
-   - Women-owned enterprise highlight badge and narrative.
+   - Authentic Yemeni culinary heritage & royal Arabian hospitality.
    - Multi-floor dine-in experience (chandeliers, marble tables, private family sections).
    - Available services: Dine-in, Drive-through, No-contact delivery.
 

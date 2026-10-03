@@ -38,9 +38,9 @@ export const customerReviews: Review[] = [
     rating: 5,
     date: "Google Review • 1 month ago",
     quote: {
-      ar: "مكان رائع للعائلات! صعدنا للطابق العلوي والجلسات مريحة وواسعة وفيها خصوصية ممتازة. أحببنا الزربيان والمعصوب بالقشطة، وفخورون بأنه مشروع تقوده نساء متميزات.",
-      en: "Wonderful place for families! We sat on the upper floor which offers generous space and great privacy. Loved the Zurbian and cream Masoob. Proud to support a women-led business!",
-      am: "ለቤተሰብ በጣም ተመራጭ ቦታ ነው! ፎቅ ላይ ሰፊ እና የግል ምቾት ያለው መቀመጫ አለ። ዙርቢያኑን እና መዕሱቡን በጣም ወደድነው። በሴቶች የሚመራ በመሆኑም ኩራት ይሰማናል።"
+      ar: "مكان رائع للعائلات! صعدنا للطابق العلوي وكانت الجلسات مريحة وواسعة وفيها خصوصية تامة وفخامة استثنائية. أحببنا الزربيان العدني والمعصوب بالقشطة، وكرم الضيافة لا يُعلى عليه.",
+      en: "Wonderful place for families! We sat on the upper floor which offers generous space and great privacy with exceptional hospitality. Loved the authentic Adeni Zurbian and cream Masoob!",
+      am: "ለቤተሰብ በጣም ተመራጭ ቦታ ነው! ፎቅ ላይ ሰፊ እና የግል ምቾት ያለው መቀመጫ አለ። እውነተኛውን የአደን ዙርቢያን እና መዕሱቡን በጣም ወደድነው፣ መስተንግዶውም ወደር የለውም።"
     },
     highlight: {
       ar: "أجواء عائلية مريحة",

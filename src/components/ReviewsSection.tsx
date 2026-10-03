@@ -14,12 +14,12 @@ export const ReviewsSection: React.FC = () => {
     <section id="reviews" className="py-20 sm:py-28 bg-white text-neutral-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-800 text-xs sm:text-sm font-bold tracking-wider uppercase mb-3">
-            <Award className="w-3.5 h-3.5 text-amber-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-100 border border-neutral-300 text-neutral-700 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-3">
+            <Award className="w-3.5 h-3.5 text-[#A38755]" />
             <span>{t.reviews.badge}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-900 tracking-tight mb-4">
             {t.reviews.title}
           </h2>
 
@@ -27,15 +27,15 @@ export const ReviewsSection: React.FC = () => {
             {t.reviews.subtitle}
           </p>
 
-          <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-6 px-6 py-3.5 rounded-2xl bg-neutral-950 text-white shadow-xl border border-amber-500/30">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-6 px-6 py-3.5 rounded-2xl bg-neutral-950 text-white shadow-lg border border-white/10">
             <div className="flex items-center gap-2">
-              <span className="text-3xl font-black text-amber-400">3.8</span>
+              <span className="text-3xl font-black text-[#EADDC9]">3.8</span>
               <div className="flex flex-col text-start">
-                <div className="flex text-amber-400">
+                <div className="flex text-[#C5A880]">
                   {[...Array(4)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="w-4 h-4 fill-[#C5A880] text-[#C5A880]" />
                   ))}
-                  <Star className="w-4 h-4 text-amber-400/50" />
+                  <Star className="w-4 h-4 text-[#C5A880]/40" />
                 </div>
                 <span className="text-[11px] text-neutral-400">out of 5.0</span>
               </div>
@@ -54,16 +54,16 @@ export const ReviewsSection: React.FC = () => {
           {customerReviews.map((rev) => (
             <div
               key={rev.id}
-              className="p-6 rounded-2xl bg-[#FCFBF7] border border-neutral-200 hover:border-amber-400/80 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-[#FCFBF7] border border-neutral-200 hover:border-neutral-400 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex text-amber-500">
+                  <div className="flex text-[#C5A880]">
                     {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#C5A880] text-[#C5A880]" />
                     ))}
                   </div>
-                  <span className="text-[11px] font-bold text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded">
+                  <span className="text-[11px] font-semibold text-neutral-700 bg-neutral-200/70 px-2 py-0.5 rounded">
                     {rev.highlight[language]}
                   </span>
                 </div>
@@ -73,7 +73,7 @@ export const ReviewsSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-neutral-200/80 flex items-center justify-between">
+              <div className="pt-4 border-t border-neutral-200 flex items-center justify-between">
                 <div>
                   <div className="font-bold text-xs text-neutral-900">{rev.name}</div>
                   <div className="text-[10px] text-neutral-500">{rev.date}</div>

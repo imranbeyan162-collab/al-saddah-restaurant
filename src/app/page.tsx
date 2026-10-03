@@ -21,7 +21,7 @@ export default function HomePage() {
       {/* Featured Dishes Curated Showcase (Informational, No Cart) */}
       <MenuShowcase />
 
-      {/* About Al-Saddah: Yemeni Heritage, Women-Owned, Multi-Floor Experience */}
+      {/* About Al-Saddah: Authentic Yemeni Culinary Heritage, Royal Hospitality, Multi-Floor Experience */}
       <AboutSection />
 
       {/* Interactive Photo Gallery with Lightbox */}

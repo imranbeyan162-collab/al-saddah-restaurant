@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/translations';
 import { Logo } from '@/components/Logo';
-import { UtensilsCrossed, MapPin, ChevronLeft, ChevronRight, Star, Clock, Sparkles, Award } from 'lucide-react';
+import { UtensilsCrossed, MapPin, ChevronLeft, ChevronRight, Star, Clock, Sparkles } from 'lucide-react';
 
 interface Slide {
   id: string;
@@ -27,47 +27,27 @@ interface Slide {
 }
 
 const slides: Slide[] = [
-  // 1st photo: The Al-Saddah Restaurant building
-  {
-    id: "slide-building",
-    image: "/images/alsaddah_building.jpg",
-    tag: {
-      ar: "المبنى الرئيسي • شارع رواندا",
-      en: "Main Building • Rwanda Street",
-      am: "ዋናው ህንፃ • ሩዋንዳ ጎዳና"
-    },
-    title: {
-      ar: "مبنى مطعم السدة - أديس أبابا",
-      en: "Al-Saddah Restaurant Building",
-      am: "አል ሰዳህ ሬስቶራንት ህንፃ - አዲስ አበባ"
-    },
-    subtitle: {
-      ar: "صرح معماري راقٍ متعدد الطوابق في شارع رواندا، يجمع بين فخامة الديكور وعراقة الطهي اليمني الأصيل",
-      en: "An upscale multi-floor architectural landmark on Rwanda Street, blending luxury dining with authentic Yemeni culinary heritage",
-      am: "በሩዋንዳ ጎዳና ላይ የሚገኝ ውብ ባለብዙ ፎቅ ህንፃ፤ እውነተኛ የየመን የምግብ ባህል እና የላቀ መስተንግዶ"
-    }
-  },
-  // 2nd photo: Interior dining hall with chandeliers from the first page
+  // 1st photo: The authentic luxury dining hall from the user's first page (crystal chandeliers, marble tables, intimate lighting)
   {
     id: "slide-interior",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85",
     tag: {
-      ar: "صالات طعام متعددة الطوابق",
-      en: "Multi-Floor Dining Experience",
-      am: "ባለብዙ ፎቅ የመመገቢያ አዳራሽ"
+      ar: "صالات طعام متعددة الطوابق • شارع رواندا",
+      en: "Multi-Floor Dining • Rwanda Street",
+      am: "ባለብዙ ፎቅ የመመገቢያ አዳራሽ • ሩዋንዳ ጎዳና"
     },
     title: {
-      ar: "أجواء فندقية دافئة وثريات فاخرة",
+      ar: "أجواء فندقية دافئة وثريات كريستالية",
       en: "Warm Ambience & Crystal Chandeliers",
       am: "ማራኪ ቻንደለሮች እና ሞቅ ያለ ድባብ"
     },
     subtitle: {
-      ar: "إضاءات دافئة وطاولات رخامية مصممة بعناية لتمنح العائلات والضيوف أقصى درجات الراحة والخصوصية",
-      en: "Gleaming chandeliers, marble tables, and intimate dining spaces tailored for families and private gatherings",
-      am: "ለቤተሰብ እና ለወዳጅ ዘመድ ምቾት እና ግላዊነት የሚሰጡ ሰፋፊ የእብነበረድ ጠረጴዛዎች እና ማራኪ መብራቶች"
+      ar: "صالات رحبة تمتد عبر طوابق متعددة، مجهزة بطاولات رخامية وإضاءات هادئة تمنحكم أقصى درجات الراحة والخصوصية",
+      en: "Thoughtfully configured multi-floor dining featuring warm crystal chandeliers, marble seating, and secluded family salons",
+      am: "ለቤተሰብ እና ለልዩ እንግዶች ምቾት እና ግላዊነት የሚሰጡ ሰፋፊ የእብነበረድ ጠረጴዛዎች እና ማራኪ መብራቶች"
     }
   },
-  // 3rd photo: Authentic Slow-Cooked Lamb Mandi
+  // 2nd photo: Authentic Slow-Cooked Lamb Mandi in fire pit
   {
     id: "slide-mandi",
     image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=85",
@@ -87,7 +67,7 @@ const slides: Slide[] = [
       am: "በባህላዊ የእሳት ጉድጓድ ውስጥ ለሰዓታት በዝግታ የበሰለ ለስላሳ የበግ ስጋ ከጣፋጭ የዛፍራን ሩዝ ጋር"
     }
   },
-  // 4th photo: Adeni Zurbian Feast
+  // 3rd photo: Royal Adeni Zurbian Feast
   {
     id: "slide-zurbian",
     image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1920&q=85",
@@ -105,6 +85,26 @@ const slides: Slide[] = [
       ar: "توليفة ملكية غنية باللحم الطري المتبل بالزبادي والبصل المكرمل وبهارات الحوايج اليمنية المستوردة",
       en: "A festive royal Adeni dish layered with tender meat, caramelized golden onions, and fragrant heirloom spices",
       am: "በካራሜላይዝድ ሽንኩርት፣ ልዩ የአደን ቅመሞች እና ለስላሳ ስጋ የተዘጋጀ የበግ ዙርቢያን"
+    }
+  },
+  // 4th photo: Authentic Charcoal Mixed Grills & Shawarma
+  {
+    id: "slide-grill",
+    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=85",
+    tag: {
+      ar: "مشويات وشاورما على الفحم",
+      en: "Charcoal Grills & Shawarma",
+      am: "ከሰል ላይ የተጠበሰ ስጋ እና ሻዋርማ"
+    },
+    title: {
+      ar: "مشويات السدة والشاورما الطازجة",
+      en: "Artisanal Charcoal Grills & Shawarma",
+      am: "ትኩስ የተጠበሱ ስጋዎች እና ሻዋርማ"
+    },
+    subtitle: {
+      ar: "تشكيلة من أسياخ المشاوي الطازجة والشاورما المحضرة يومياً بتتبيلات السدة الخاصة وخبز التنور الساخن",
+      en: "Fresh skewered meats and artisanal shawarma seasoned with proprietary spices and served with hot tandoor bread",
+      am: "በትኩስ የተመረጡ ስጋዎች እና ልዩ ቅመሞች የተዘጋጀ የተጠበሰ ስጋ ከትኩስ ዳቦ ጋር"
     }
   },
   // 5th photo: Traditional Tea & Yemeni Hospitality
@@ -136,7 +136,7 @@ export const HeroSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-slide every 5 seconds (5000ms)
+  // Auto-slide every 5 seconds (5000ms) with smooth cross-fade
   useEffect(() => {
     if (isPaused) return;
 
@@ -160,11 +160,11 @@ export const HeroSlider: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-black text-white pt-24 pb-16 select-none"
+      className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-neutral-950 text-white pt-24 pb-16 select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background Slides with Ken Burns Cinematic Zoom & Smooth Cross-fade */}
+      {/* Background Slides with subtle Ken Burns zoom and clear, non-glaring lighting */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {slides.map((slide, index) => {
           const isActive = index === currentIndex;
@@ -175,100 +175,90 @@ export const HeroSlider: React.FC = () => {
                 isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
-              {/* Ken Burns Slow Zoom */}
+              {/* Ken Burns Subtle Zoom */}
               <div
-                className={`w-full h-full transform transition-transform duration-[6000ms] ease-out ${
+                className={`w-full h-full transform transition-transform duration-[7000ms] ease-out ${
                   isActive ? 'scale-105' : 'scale-100'
                 }`}
               >
+                {/* Natural, clear brightness - allows people to clearly see the restaurant interior and dishes */}
                 <img
                   src={slide.image}
                   alt={slide.title[language]}
-                  className="w-full h-full object-cover object-center brightness-[0.42] contrast-[1.15]"
+                  className="w-full h-full object-cover object-center brightness-[0.62] contrast-[1.04]"
                 />
               </div>
 
-              {/* Gradients & Vignettes */}
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-neutral-950/70" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80" />
-              <div className="absolute inset-0 bg-radial from-amber-500/10 via-transparent to-black/90" />
+              {/* Clean, neutral dark gradients for perfect text readability without harsh yellow glare */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/60" />
+              <div className="absolute inset-0 bg-black/20" />
             </div>
           );
         })}
       </div>
 
-      {/* Golden Ambient Glow */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
       {/* Foreground Hero Content Overlay */}
-      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center">
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center">
         {/* Brand Circular Emblem */}
-        <div className="mb-5 transform hover:scale-105 transition-transform duration-300 drop-shadow-[0_10px_30px_rgba(201,162,39,0.4)]">
-          <Logo size={105} showText={false} />
+        <div className="mb-4 transform hover:scale-105 transition-transform duration-300 drop-shadow-[0_8px_20px_rgba(0,0,0,0.7)]">
+          <Logo size={96} showText={false} />
         </div>
 
-        {/* Dynamic Slide Badge Tag */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md mb-4 shadow-lg transition-all duration-500">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+        {/* Dynamic Slide Badge Tag - Clean, subtle frosted glass */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 border border-white/20 text-neutral-200 text-xs sm:text-sm font-medium tracking-wide backdrop-blur-md mb-4 shadow-md transition-all duration-500">
+          <Sparkles className="w-3.5 h-3.5 text-[#C5A880]" />
           <span>{currentSlide.tag[language]}</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-          <span>{t.hero.badgeWomen}</span>
         </div>
 
-        {/* Main Heading */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-4 leading-tight">
-          <span className="gold-gradient-text drop-shadow-[0_4px_20px_rgba(201,162,39,0.35)]">
-            {language === 'ar' ? 'مطعم السدة' : language === 'am' ? 'አል ሰዳህ ሬስቶራንት' : 'AL-SADDAH'}
+        {/* Main Heading with Muted, Sophisticated Champagne/White Contrast */}
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white mb-3 leading-tight drop-shadow-lg">
+          <span className="text-[#EADDC9] block sm:inline">
+            {language === 'ar' ? 'مطعم السدة' : language === 'am' ? 'አል ሰዳህ ሬስቶራንት' : 'AL-SADDAH RESTAURANT'}
           </span>
-          <span className="block text-xl sm:text-3xl md:text-4xl font-extrabold text-neutral-100 mt-1">
+          <span className="block text-lg sm:text-2xl md:text-3xl font-bold text-neutral-100 mt-1 drop-shadow">
             {currentSlide.title[language]}
           </span>
         </h1>
 
-        {/* Dynamic Slide Subtitle */}
-        <p className="max-w-3xl text-sm sm:text-base md:text-lg text-neutral-200 font-medium mb-8 leading-relaxed drop-shadow-md min-h-[3rem] transition-opacity duration-500">
+        {/* Dynamic Slide Subtitle - Clear, highly legible, calm font */}
+        <p className="max-w-2xl text-xs sm:text-sm md:text-base text-neutral-300 font-normal mb-8 leading-relaxed drop-shadow min-h-[2.5rem] transition-opacity duration-500">
           {currentSlide.subtitle[language]}
         </p>
 
-        {/* Prominent CTAs: "View Menu" and "Get Directions" */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10">
+        {/* Prominent CTAs: Tasteful, muted luxury buttons without bright neon yellow */}
+        <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto mb-10">
           <a
             href="#menu"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-neutral-950 font-extrabold text-base gold-glow-btn shadow-lg shadow-amber-900/40 hover:brightness-110 active:scale-95 transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#C5A880] hover:bg-[#D4B890] text-neutral-950 font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
           >
-            <UtensilsCrossed className="w-5 h-5" />
+            <UtensilsCrossed className="w-4 h-4" />
             <span>{t.hero.btnMenu}</span>
           </a>
 
           <a
             href="#contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-neutral-900/85 hover:bg-neutral-800 text-neutral-100 border border-amber-400/40 hover:border-amber-400 font-bold text-base backdrop-blur-md hover:text-amber-300 transition-all active:scale-95"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-black/55 hover:bg-neutral-800/80 text-neutral-100 border border-white/20 hover:border-white/40 font-semibold text-sm sm:text-base backdrop-blur-md transition-all active:scale-95"
           >
-            <MapPin className="w-5 h-5 text-amber-400" />
+            <MapPin className="w-4 h-4 text-[#C5A880]" />
             <span>{t.hero.btnDirections}</span>
           </a>
         </div>
 
-        {/* Highlights Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 w-full max-w-4xl text-neutral-300 text-xs sm:text-sm">
-          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-neutral-950/70 border border-white/10 backdrop-blur-sm">
-            <Award className="w-4 h-4 text-amber-400 shrink-0" />
-            <span>{t.hero.badgeWomen}</span>
+        {/* Highlights Bar - Refined dark frosted glass, calm bronze icons */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full max-w-2xl text-neutral-300 text-xs">
+          <div className="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-black/55 border border-white/10 backdrop-blur-md">
+            <MapPin className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
+            <span className="font-medium text-neutral-200">Rwanda Street • Addis Ababa</span>
           </div>
 
-          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-neutral-950/70 border border-white/10 backdrop-blur-sm">
-            <Star className="w-4 h-4 text-amber-400 fill-amber-400 shrink-0" />
-            <span>3.8 ★ (782+ Reviews)</span>
+          <div className="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-black/55 border border-white/10 backdrop-blur-md">
+            <Star className="w-3.5 h-3.5 text-[#C5A880] fill-[#C5A880] shrink-0" />
+            <span className="font-medium text-neutral-200">3.8 ★ (782+ Google Reviews)</span>
           </div>
 
-          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-neutral-950/70 border border-white/10 backdrop-blur-sm">
-            <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-            <span>{t.hero.badgeHours}</span>
-          </div>
-
-          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-neutral-950/70 border border-white/10 backdrop-blur-sm">
-            <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-            <span className="truncate">Rwanda Street</span>
+          <div className="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-black/55 border border-white/10 backdrop-blur-md">
+            <Clock className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
+            <span className="font-medium text-neutral-200">{t.hero.badgeHours}</span>
           </div>
         </div>
       </div>
@@ -276,30 +266,30 @@ export const HeroSlider: React.FC = () => {
       {/* Manual Slide Navigation Arrows */}
       <button
         onClick={isRTL ? goToNext : goToPrev}
-        className="hidden md:flex absolute left-4 lg:left-8 z-20 p-3.5 rounded-full bg-black/60 hover:bg-amber-500 hover:text-black text-white border border-white/20 hover:border-amber-400 transition-all backdrop-blur-md shadow-xl"
+        className="hidden md:flex absolute left-4 lg:left-8 z-20 p-3 rounded-full bg-black/50 hover:bg-white/20 text-white border border-white/15 transition-all backdrop-blur-md shadow-lg"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5" />
       </button>
 
       <button
         onClick={isRTL ? goToPrev : goToNext}
-        className="hidden md:flex absolute right-4 lg:right-8 z-20 p-3.5 rounded-full bg-black/60 hover:bg-amber-500 hover:text-black text-white border border-white/20 hover:border-amber-400 transition-all backdrop-blur-md shadow-xl"
+        className="hidden md:flex absolute right-4 lg:right-8 z-20 p-3 rounded-full bg-black/50 hover:bg-white/20 text-white border border-white/15 transition-all backdrop-blur-md shadow-lg"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5" />
       </button>
 
-      {/* Minimalist Elegant Slide Indicators (No Counter, No Numbers) */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-md">
+      {/* Minimalist Elegant Slide Indicators */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`h-2 rounded-full transition-all duration-500 ${
+            className={`h-1.5 rounded-full transition-all duration-500 ${
               idx === currentIndex
-                ? 'w-8 bg-amber-400 shadow-[0_0_12px_#C9A227]'
-                : 'w-2 bg-white/40 hover:bg-white/70'
+                ? 'w-6 bg-[#C5A880]'
+                : 'w-1.5 bg-white/35 hover:bg-white/60'
             }`}
             aria-label={`Slide ${idx + 1}`}
           />
